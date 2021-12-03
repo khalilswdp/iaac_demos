@@ -27,4 +27,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 echo "I: completed installing docker and docker-compose....."
 
+echo "I: Adding current user to the group of users capable of running docker....."
+sudo usermod -aG docker $USER
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo service docker restart
+
 exit 0
